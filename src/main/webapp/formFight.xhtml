@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<title>Calcul du résultat de l'attaque</title>
+</h:head>
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
+			<f:view>
+				<h:form>
+					<p:panelGrid columns="2" layout="grid">
+
+						<h:outputLabel styleClass="label"
+							value="Jet d'attaque de l'attaquant" />
+						<p:inputText id="atq" placeholder="Jet d'attaque" required="true"
+							value="#{fightController.atq}" />
+
+						<h:outputLabel styleClass="label"
+							value="Jet de défense du défenseur" />
+						<p:inputText id="def" placeholder="Jet de défense" required="true"
+							value="#{fightController.def}" />
+
+						<h:outputLabel styleClass="label" value="IP du défenseur" />
+						<p:inputText id="ip" placeholder="IP" required="true"
+							value="#{fightController.ip}" />
+
+						<h:outputLabel styleClass="label" value="Valeur de dommages" />
+						<p:inputText id="dmg" placeholder="Dégâts" required="true"
+							value="#{fightController.dmg}" />
+
+					</p:panelGrid>
+
+					<p:commandButton styleClass="button" ajax="true"
+						value="Ajouter le combattant"
+						action="#{fightController.searchResult()}" />
+
+				</h:form>
+
+			</f:view>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

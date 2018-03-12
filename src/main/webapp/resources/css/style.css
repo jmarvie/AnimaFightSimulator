@@ -1,0 +1,56 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: white;
+	margin: 0;
+}
+
+#header {
+	background-color: #0080c0;
+	height: 15vh;
+}
+
+.linkmenu {
+	color: red;
+	text-align: center;
+	display: block;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.tabrow {
+	border-style: outset;
+	border-color: white;
+	width: 100vw;
+	padding: 15px;
+}
+
+#footer {
+	background-color: #0080c0;
+	height: 15vh;
+}
+
+#sidemenu {
+	width: 30vw;
+	height: 70vh;
+	border-right: solid;
+	background-color: silver;
+	border-style: ridge;
+}
+
+#content {
+	height: 70vh;
+	width: 68vw;
+	padding-left: 5px;
+	border-style: solid;
+}
+
+.intro {
+	text-align: center;
+}
+
+.additionalDataForNPJ {
+	border-style: solid;
+}

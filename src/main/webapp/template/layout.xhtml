@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<h:outputStylesheet name="style.css" library="css" />
+</h:head>
+<h:body>
+	<div id="page">
+		<div id="header">
+			<ui:insert name="header">
+				<ui:include src="/template/header.xhtml">
+				</ui:include>
+			</ui:insert>
+		</div>
+		<table>
+			<tr>
+				<td>
+					<div id="sidemenu">
+						<ui:insert name="sidemenu">
+							<ui:include src="/template/sidemenu.xhtml">
+							</ui:include>
+						</ui:insert>
+					</div>
+				</td>
+				<td>
+					<div id="content">
+						<ui:insert name="content">
+							<ui:include src="/template/content.xhtml">
+							</ui:include>
+						</ui:insert>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div id="footer">
+			<ui:insert name="footer">
+				<ui:include src="/template/footer.xhtml">
+				</ui:include>
+			</ui:insert>
+		</div>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<title>Création d'un combat</title>
+</h:head>
+<h:body>
+	<ui:composition template="/template/layout.xhtml">
+		<ui:define name="content">
+			<f:event listener="#{npcFighterController.preRenderView()}"
+				type="preRenderView"></f:event>
+			<f:view>
+				<h:form>
+					<p:commandButton styleClass="button" value="Ajouter un combattant"
+						actionListener="#{npcFighterController.addNewNPCFighter()}"
+						ajax="true" update="infoFighter" />
+					<p:commandButton styleClass="button"
+						value="Réinitialiser la liste des combattants"
+						actionListener="#{npcFighterController.removeAllNPCFighters()}" />
+					<br />
+					<br />
+					<p:panelGrid columns="2" layout="grid" id="infoFighter"
+						rendered="#{npcFighterController.formFightersVisible}">
+						<h:outputLabel styleClass="label" value="Nom du combattant" />
+						<p:inputText placeholder="Nom du combattant" id="name"
+							value="#{npcFighterController.fighter.name}" ajax="true">
+						</p:inputText>
+						<h:outputText value="Le personnage est-il un PJ ?" />
+						<p:selectBooleanButton id="pc"
+							value="#{npcFighterController.fighter.playableCharacter}"
+							onLabel="Oui" offLabel="Non" style="width:60px" ajax="true" />
+					</p:panelGrid>
+					<br />
+					<br />
+					<p:panelGrid>
+						<p:commandButton styleClass="button" ajax="true"
+							value="Ajouter le combattant"
+							action="#{npcFghterController.addNPCFighter()}">
+							<p:resetInput target="infoFighter" />
+							<f:ajax execute="@form" render="@form" />
+						</p:commandButton>
+						<p:commandButton styleClass="button" value="Retour"
+							action="#{menuController.goBackToIndex()}" ajax="true"
+							update="name">
+							<f:ajax execute="@form" render="@form" />
+						</p:commandButton>
+					</p:panelGrid>
+				</h:form>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
